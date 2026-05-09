@@ -1,0 +1,93 @@
+.bar {
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  /* Updated to 5 columns */
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+}
+
+.stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+  text-align: center;
+  gap: 4px;
+}
+
+.value {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.8rem;
+  /* Slightly smaller to fit 5 items comfortably */
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 0 20px currentColor;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary, #e6e6e6);
+  margin-top: 4px;
+}
+
+.sub {
+  font-size: 0.75rem;
+  color: var(--text-muted, #888);
+  font-family: var(--font-mono, monospace);
+}
+
+.divider {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Tablet: Wrap into a nice 3-top, 2-bottom grid */
+@media (max-width: 992px) {
+  .inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Hide the 3rd divider so it doesn't bleed off the edge of the screen */
+  .stat:nth-child(3) .divider {
+    display: none;
+  }
+}
+
+/* Mobile: Wrap into 2 columns, then 1 */
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Remove all vertical dividers on mobile since it wraps unevenly */
+  .divider {
+    display: none;
+  }
+
+  .stat {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

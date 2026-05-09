@@ -1,0 +1,140 @@
+.section {
+  padding: var(--section-padding);
+}
+
+.heading {
+  margin-bottom: 52px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px color-mix(in srgb, var(--plat-color) 20%, transparent);
+}
+
+.glowBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--plat-color) 50%, transparent),
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Card head */
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.platIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--plat-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--plat-color) 30%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--plat-color);
+}
+
+.platName {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.platBadge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--plat-color);
+  background: color-mix(in srgb, var(--plat-color) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--plat-color) 25%, transparent);
+  padding: 2px 8px;
+  border-radius: 100px;
+  display: inline-block;
+}
+
+/* Stats 2×2 grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.stat {
+  padding: 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: var(--radius-sm);
+}
+
+.statVal {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--plat-color);
+  text-shadow: 0 0 16px color-mix(in srgb, var(--plat-color) 50%, transparent);
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* GitHub Heatmap */
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 2px;
+  overflow: hidden;
+}
+
+.heatCell {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  transition: background var(--transition-fast);
+}
+
+.heatCell:hover {
+  outline: 1px solid rgba(255,255,255,0.3);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

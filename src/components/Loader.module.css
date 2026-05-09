@@ -1,0 +1,108 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 242, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 242, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridPulse 2s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logoBox {
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 255, 242, 0.05);
+  position: relative;
+}
+
+.logoText {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 4px;
+}
+
+.cursor {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.loadingBar {
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform-origin: left;
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.loadingText {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+}
+
+.dots {
+  animation: blink 1s step-end infinite;
+}
+
+.scanLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 255, 242, 0.5) 50%,
+    transparent 100%
+  );
+  animation: scan 2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0%   { top: 0%; }
+  100% { top: 100%; }
+}

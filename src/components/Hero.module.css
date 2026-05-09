@@ -1,0 +1,137 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 24px 80px;
+  background-color: #0d1117;
+  /* GitHub Dark mode background */
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  pointer-events: none;
+}
+
+.radial {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 255, 242, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.inner {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- The Code Block Header --- */
+.codeBlock {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(13, 17, 23, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.windowHeader {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 8px;
+}
+
+.macDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.fileName {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: #8b949e;
+  transform: translateX(-20px);
+  /* Center alignment offset */
+}
+
+.codeContent {
+  padding: 24px;
+  margin: 0;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left;
+  overflow-x: auto;
+}
+
+/* Syntax Highlighting Colors (VS Code / GitHub Dark inspired) */
+.bracket {
+  color: #e6e6e6;
+}
+
+.key {
+  color: #79c0ff;
+}
+
+/* Light Blue */
+.string {
+  color: #a5d6ff;
+}
+
+/* Lighter Blue */
+.boolean {
+  color: #00fff2;
+}
+
+/* Neon Cyan */
+
+/* --- The Connector --- */
+.connector {
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(0, 255, 242, 0.5), transparent);
+  margin: 10px 0;
+}
+
+/* --- Terminal Wrapper --- */
+.terminalWrapper {
+  width: 100%;
+  max-width: 800px;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 242, 0.1));
+}
+
+@media (max-width: 768px) {
+  .codeContent {
+    font-size: 0.9rem;
+    padding: 16px;
+  }
+
+  .hero {
+    padding: 100px 16px 40px;
+  }
+}
